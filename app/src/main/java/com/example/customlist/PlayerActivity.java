@@ -47,12 +47,12 @@ ImageView pic;
             }
         }
     }
-    @SuppressLint("SetTextI18n")
+
     public void setContent(int x){
         pic.setImageResource(player_details[x][4]);
         pic.setContentDescription(String.valueOf(x));
-        name.setText("Name: " +player_details[x][0]);
-        age.setText("Age: " +player_details[x][1]);
-        height.setText("Height: "+ player_details[x][2]);
-        nation.setText("Nationality: " +player_details[x][3]);    }
+        name.setText("Name:  " +getResources().getString(player_details[x][0]));
+        age.setText("Age: " +getResources().getString(player_details[x][1]));
+        height.setText("Height: "+ getResources().getString(player_details[x][2]));
+        nation.setText("Nationality: " +getResources().getString(player_details[x][3]));    }
 }
