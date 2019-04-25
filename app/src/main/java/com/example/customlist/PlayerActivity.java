@@ -1,5 +1,6 @@
 package com.example.customlist;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 public class PlayerActivity extends AppCompatActivity {
 Intent i;
 Bundle b;
-TextView name,age,height;
+TextView name,age,height,nation;
 ImageView pic;
     Integer [][] player_details= {
             { (R.string.mesut), (R.string.mesut_age),(R.string.mesut_height),(R.string.mesut_nat),(R.drawable.ozil)},
@@ -32,6 +33,7 @@ ImageView pic;
         i = getIntent();
         b = i.getExtras();
         name = findViewById(R.id.name);
+        nation = findViewById(R.id.nationaity);
         age = findViewById(R.id.age);
         height = findViewById(R.id.height);
         pic  = findViewById(R.id.image);
@@ -45,7 +47,12 @@ ImageView pic;
             }
         }
     }
+    @SuppressLint("SetTextI18n")
     public void setContent(int x){
-
-    }
+        pic.setImageResource(player_details[x][4]);
+        pic.setContentDescription(String.valueOf(x));
+        name.setText("Name: " +player_details[x][0]);
+        age.setText("Age: " +player_details[x][1]);
+        height.setText("Height: "+ player_details[x][2]);
+        nation.setText("Nationality: " +player_details[x][3]);    }
 }
